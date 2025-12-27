@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRISM / CONVERTER</title>
+    
+    <!-- SEO & Meta -->
+    <meta name="description" content="Industrial strength WEBP converter. Client-side, privacy-focused.">
+    
+    <!-- Fonts: Space Grotesk (Headings) + Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons: Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- Header -->
+        <header class="site-header">
+            <div class="header-left">
+                <div class="brand">
+                    <i class="ph-bold ph-prism"></i>
+                    <span>PRISM / IMG-TOOL</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <nav class="nav-links">
+                    <a href="#key-features" class="nav-link">FEATURES</a>
+                    <a href="#how-to-use" class="nav-link">GUIDE</a>
+                    <a href="#faq" class="nav-link">FAQ</a>
+                </nav>
+                <button id="themeToggleBtn" class="theme-toggle-btn" title="Toggle Theme">
+                    <i class="ph-bold ph-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Interface -->
+        <main class="main-interface">
+            
+            <!-- SECTION 01: CONTROLS -->
+            <section class="panel control-panel">
+                <div class="panel-header">
+                    <h2>01 // CONFIGURATION</h2>
+                </div>
+                <div class="panel-body">
+                    <div class="control-group">
+                        <label>QUALITY_INDEX</label>
+                        <div class="slider-wrapper">
+                            <input type="range" id="qualitySlider" min="1" max="100" value="85">
+                            <span class="value-display" id="qualityValue">85%</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 02: UPLOAD & QUEUE -->
+            <section class="panel upload-panel">
+                <div class="panel-header">
+                    <h2>02 // INPUT_STREAM</h2>
+                    
+                    <div class="header-controls">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="autoConvertToggle">
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-label">AUTO_START</span>
+                        </label>
+                    
+                        <div class="batch-actions">
+                            <button id="convertAllBtn" class="btn btn-primary" disabled>
+                                INITIALIZE_CONVERSION
+                            </button>
+                            <button id="downloadAllBtn" class="btn btn-outline" disabled>
+                                ARCHIVE_ZIP
+                            </button>
+                            <button id="clearAllBtn" class="btn btn-text">CLEAR</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="drop-zone" id="dropZone">
+                    <div class="drop-content">
+                        <i class="ph-light ph-plus"></i>
+                        <p>DROP_FILES_HERE</p>
+                        <span class="sub">PNG / JPG / BMP / TIFF</span>
+                    </div>
+                    <input type="file" id="fileInput" multiple accept="image/*" hidden>
+                </div>
+
+                <div class="file-list-header">
+                    <span>FILE_NAME</span>
+                    <span>ORIG_SIZE</span>
+                    <span>STATUS</span>
+                    <span>ACTIONS</span>
+                </div>
+                <div class="file-list" id="fileList">
+                    <!-- Items go here -->
+                </div>
+            </section>
+
+        </main>
+
+        <!-- SEO Content / Article -->
+        <article class="article-section">
+            <h1>Free WebP Converter Tool - High Performance & Privacy Focused</h1>
+            <p>Convert your images to the modern, high-efficiency WebP format instantly. Our tool offers a sleek <strong>Swiss Industrial</strong> interface, client-side processing for maximum privacy, and advanced features like before/after comparisons and batch processing.</p>
+
+            <h2>Table of Contents</h2>
+            <ol>
+                <li><a href="#why-use-webp" style="color: inherit;">Why Use WebP?</a></li>
+                <li><a href="#key-features" style="color: inherit;">Key Features</a></li>
+                <li><a href="#privacy-first" style="color: inherit;">Privacy First: Client-Side Processing</a></li>
+                <li><a href="#mobile-optimized" style="color: inherit;">Mobile Optimized Experience</a></li>
+                <li><a href="#how-to-use" style="color: inherit;">How to Use</a></li>
+                <li><a href="#technical-specs" style="color: inherit;">Technical Specifications</a></li>
+                <li><a href="#faq" style="color: inherit;">Frequently Asked Questions (FAQ)</a></li>
+            </ol>
+
+            <h2 id="why-use-webp">Why Use WebP?</h2>
+            <p>WebP is a modern image format that provides superior lossless and lossy compression for images on the web. Using WebP, you can create smaller, richer images that make the web faster.</p>
+            <ul>
+                <li><strong>Smaller File Sizes</strong>: 26% smaller than PNGs and 25-34% smaller than JPEGs.</li>
+                <li><strong>Faster Loading</strong>: Improved page speed scores and SEO rankings.</li>
+                <li><strong>Transparency Support</strong>: Full alpha channel support like PNG.</li>
+            </ul>
+
+            <h2 id="key-features">Key Features</h2>
+            <h3>1. Visual Comparison Slider</h3>
+            <p>Don't guess the quality. Use our built-in <strong>Before/After Slider</strong> to visually inspect the difference between your original image and the converted WebP result. Adjust headers, sharpness, and compression artifacts in real-time.</p>
+
+            <h3>2. Auto-Start Conversion</h3>
+            <p>Efficiency is key. Enable the <strong>AUTO_START</strong> toggle to immediately process images as soon as you drag and drop them. No extra clicks required.</p>
+
+            <h3>3. Batch Processing</h3>
+            <p>Upload hundreds of images at once. Our tool processes them in a queue and allows you to download them individually or as a single <strong>ZIP Archive</strong>.</p>
+
+            <h3>4. Smart Re-Conversion</h3>
+            <p>Need to tweak a specific image? Change the quality slider and hit the <strong>Redo</strong> button on any individual item to re-process just that file without re-uploading.</p>
+
+            <h2 id="privacy-first">Privacy First: Client-Side Processing</h2>
+            <p>Unlike other online converters that upload your photos to a remote server, <strong>our tool runs entirely in your browser</strong>.</p>
+            <ul>
+                <li><strong>Zero Uploads</strong>: Your images never leave your device.</li>
+                <li><strong>100% Secure</strong>: Perfect for sensitive documents or personal photos.
+                <li><strong>Instant Speed</strong>: No network latency or upload wait times.</li>
+            </ul>
+
+            <h2 id="mobile-optimized">Mobile Optimized Experience</h2>
+            <p>We have designed this tool with a <strong>Mobile-First</strong> philosophy using a Swiss Minimalist aesthetic.</p>
+            <ul>
+                <li><strong>Responsive Layout</strong>: Interface adapts perfectly to phones, tablets, and desktops.</li>
+                <li><strong>Touch Friendly</strong>: Large drag targets and touch-optimized sliders.</li>
+                <li><strong>Data Saving</strong>: Convert images directly on your phone before sharing them to save data.</li>
+            </ul>
+
+            <h2 id="how-to-use">How to Use</h2>
+            <ol>
+                <li><strong>Select Images</strong>: Drag & drop PNG, JPG, or BMP files into the "Input Stream" zone.</li>
+                <li><strong>Adjust Quality</strong>: Use the slider to set your desired compression level (default is 85%).</li>
+                <li><strong>Convert</strong>: Click <strong>INITIALIZE_CONVERSION</strong> (or use Auto-Start).</li>
+                <li><strong>Preview</strong>: Click the <strong>Eye Icon</strong> to compare the result.</li>
+                <li><strong>Download</strong>: Save files individually or click <strong>ARCHIVE_ZIP</strong> to get everything at once.</li>
+            </ol>
+
+            <h2 id="technical-specs">Technical Specifications</h2>
+            <table>
+                <tr>
+                    <th>Feature</th>
+                    <th>Specification</th>
+                </tr>
+                <tr>
+                    <td>Supported Inputs</td>
+                    <td>PNG, JPEG, JPG, BMP</td>
+                </tr>
+                <tr>
+                    <td>Output Format</td>
+                    <td>WebP (Lossy/Lossless)</td>
+                </tr>
+                <tr>
+                    <td>Architecture</td>
+                    <td>HTML5, CSS3, Vanilla JS (ES6+)</td>
+                </tr>
+                <tr>
+                    <td>Processing</td>
+                    <td>In-Browser (canvas API)</td>
+                </tr>
+            </table>
+
+            <h2 id="faq">FAQ</h2>
+            <p><strong>Q: Is there a file size limit?</strong><br>
+            A: No hard limit! Since processing happens on your device, it depends on your device's RAM. We've optimized it to handle large batches efficiently.</p>
+
+            <p><strong>Q: Can I convert WebP back to PNG?</strong><br>
+            A: Currently, this tool focuses on optimizing <em>to</em> WebP.</p>
+
+            <p><strong>Q: Does it work offline?</strong><br>
+            A: Yes! Once the page is loaded, you can disconnect from the internet and continue converting.</p>
+        </article>
+
+        <footer class="site-footer">
+            <div class="footer-grid">
+                <span>VER 2.0.0</span>
+                <span>CLIENT_SIDE_PROCESSING</span>
+                <span>
+                    DEVELOPED BY <a href="https://github.com/dhanushrs1" target="_blank" style="color: inherit; text-decoration: underline;">@dhanushrs1</a>
+                </span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Preview Modal -->
+    <div class="modal-overlay" id="previewModal">
+        <div class="modal-window">
+            <div class="modal-header">
+                <h3>PREVIEW_OUTPUT</h3>
+                <button class="btn-close" id="closeModalBtn"><i class="ph-bold ph-x"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="preview-canvas">
+                    <div class="comparison-wrapper" id="comparisonWrapper">
+                        <!-- Original Image (Background) -->
+                        <img id="compOriginal" class="comp-img" alt="Original">
+                        <span class="label-badge label-orig">ORIGINAL</span>
+                        
+                        <!-- Converted Image (Foreground/Overlay) -->
+                        <div class="comp-overlay" id="compOverlay">
+                            <img id="compResult" class="comp-img" alt="WebP">
+                            <span class="label-badge label-new">WEBP</span>
+                        </div>
+                        
+                        <!-- Slider Handle -->
+                        <div class="comp-slider" id="compSlider">
+                            <div class="slider-circle">
+                                <i class="ph-bold ph-arrows-left-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="preview-meta">
+                    <div class="meta-item">
+                        <span class="label">FILE_SIZE</span>
+                        <span class="value" id="previewSize">--</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="label">QUALITY</span>
+                        <span class="value" id="previewQuality">--</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JSZip & Confetti -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
