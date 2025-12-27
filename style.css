@@ -924,3 +924,85 @@ input[type="range"]::-webkit-slider-thumb:hover {
     .article-section h2 { font-size: 1.4rem; }
     .article-section table { display: block; overflow-x: auto; }
 }
+
+/* --- Social Sidebar --- */
+.social-sidebar {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-main);
+    border-right: none;
+    box-shadow: -2px 2px 8px rgba(0,0,0,0.1);
+    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+}
+
+.social-btn {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border-main);
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    transition: all 0.2s;
+}
+
+.social-btn:last-child {
+    border-bottom: none;
+}
+
+.social-btn:hover {
+    background: var(--text-main);
+    color: var(--bg-surface);
+    width: 56px; /* Pop out effect */
+}
+
+/* Platform Colors on Hover */
+.social-btn[data-platform="facebook"]:hover { background: #1877F2; color: white; }
+.social-btn[data-platform="twitter"]:hover { background: #1DA1F2; color: white; }
+.social-btn[data-platform="linkedin"]:hover { background: #0A66C2; color: white; }
+.social-btn[data-platform="whatsapp"]:hover { background: #25D366; color: white; }
+
+@media (max-width: 768px) {
+    .social-sidebar {
+        top: auto;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        transform: none;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+        border-radius: 0;
+        border: none;
+        border-top: 1px solid var(--border-main);
+        padding-bottom: env(safe-area-inset-bottom, 0px); /* iPhone Home Bar Safety */
+        box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+    }
+
+    .social-btn {
+        flex: 1;
+        border-bottom: none;
+        border-right: 1px solid var(--border-main);
+        height: 56px; /* Taller touch target */
+    }
+
+    .social-btn:last-child {
+        border-right: none;
+    }
+
+    .social-btn:hover {
+        width: auto; /* Reset pop out */
+        background: var(--bg-surface); /* No hover bg on mobile mostly */
+        color: var(--color-accent);
+    }
+}

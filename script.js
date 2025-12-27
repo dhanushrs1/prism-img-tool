@@ -530,3 +530,37 @@ async function downloadAllAsZip() {
     
     downloadAllBtn.textContent = 'ARCHIVE_ZIP';
 }
+
+/* --- Social Sharing Logic --- */
+document.addEventListener('DOMContentLoaded', () => {
+    const socialBtns = document.querySelectorAll('.social-btn');
+    // Use current URL or a fixed one if running locally/file://
+    const pageUrl = encodeURIComponent(window.location.href);
+    const pageTitle = encodeURIComponent(document.title);
+
+    socialBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+             const platform = btn.getAttribute('data-platform');
+             let shareUrl = '';
+
+             switch(platform) {
+                 case 'facebook':
+                     shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+                     break;
+                 case 'twitter':
+                     shareUrl = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+                     break;
+                 case 'linkedin':
+                     shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${pageUrl}&title=${pageTitle}`;
+                     break;
+                 case 'whatsapp':
+                     shareUrl = `https://api.whatsapp.com/send?text=${pageTitle}%20${pageUrl}`;
+                     break;
+             }
+
+             if (shareUrl) {
+                 window.open(shareUrl, '_blank', 'width=600,height=400');
+             }
+        });
+    });
+});
